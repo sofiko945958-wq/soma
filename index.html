@@ -253,12 +253,104 @@ h1{font-size:44px;line-height:.98;margin:8px 0 12px}
 
 .section-directory{padding-top:18px}.section-links{display:grid;gap:14px}.section-link{display:grid;grid-template-columns:42% 58%;min-height:190px;overflow:hidden;border-radius:25px;background:#2b2427;color:#fff;border:1px solid rgba(217,144,155,.25);box-shadow:var(--shadow)}.section-link img{width:100%;height:100%;object-fit:cover;object-position:center}.section-link-copy{position:relative;padding:20px 18px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,rgba(52,43,47,.94),rgba(35,29,32,.98))}.section-link-copy span{font-size:12px;color:var(--rose2);letter-spacing:.12em}.section-link-copy h3{font-family:Georgia,serif;font-weight:500;font-size:27px;margin:6px 0 8px;color:#f1c1c7}.section-link-copy p{margin:0;color:#e4dadd;font-size:13px;line-height:1.45;padding-right:32px}.section-link-copy b{position:absolute;right:16px;bottom:16px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(217,144,155,.18);font-size:22px;font-weight:400}.contact-links{display:grid;gap:10px;margin-top:18px}.contact .secondary{color:var(--ink)}.footer-contacts a{color:#f1c1c7;text-decoration:underline}.about-photo img{object-position:center 25%}@media(min-width:800px){.section-links{grid-template-columns:repeat(2,1fr)}.section-link:last-child{grid-column:1/-1}.contact-links{grid-template-columns:repeat(3,1fr)}}@media(max-width:480px){.section-link{grid-template-columns:40% 60%;min-height:174px}.section-link-copy{padding:17px 14px}.section-link-copy h3{font-size:23px}.section-link-copy p{font-size:12px}.sticky a{font-size:12px}}
 .click-card{position:relative;display:block;transition:.2s}.click-card:hover{transform:translateY(-3px)}.open-label{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-weight:700;color:var(--rose)}.page-hero{padding:28px 0}.page-hero-card{overflow:hidden;border-radius:32px;background:var(--dark);color:#fff}.page-hero-card img{width:100%;height:300px;object-fit:cover}.page-hero-copy{padding:24px}.detail-grid{display:grid;gap:14px}.detail-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px}.detail-card h2{font-size:29px}.detail-card p,.detail-card li{color:var(--muted);line-height:1.6}@media(min-width:760px){.detail-grid{grid-template-columns:repeat(2,1fr)}.page-hero-card{display:grid;grid-template-columns:1fr 1fr}.page-hero-card img{height:100%}}
+
+/* Results and reviews */
+.proof-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+.proof-item{padding:16px 12px;border:1px solid var(--line);border-radius:20px;background:#fff;text-align:center}
+.proof-item strong{display:block;font-family:Georgia,serif;font-size:27px;color:var(--rose)}
+.proof-item span{font-size:12px;color:var(--muted);line-height:1.35}
+.case-grid{display:grid;gap:14px}
+.case-card{position:relative;overflow:hidden;border-radius:27px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 42px rgba(57,40,48,.08);cursor:pointer}
+.case-card img{width:100%;height:430px;object-fit:cover;object-position:center}
+.case-card .case-copy{padding:18px 18px 20px}
+.case-card h3{font-family:Georgia,serif;font-size:25px;margin:5px 0 7px}
+.case-card p{margin:0;color:var(--muted);line-height:1.55}
+.quote-grid{display:grid;gap:12px;margin-bottom:20px}
+.quote-card{padding:21px;border-radius:24px;background:linear-gradient(145deg,#fff,#fbf1ef);border:1px solid var(--line)}
+.quote-card p{font-family:Georgia,serif;font-size:20px;line-height:1.45;margin:0 0 12px}
+.quote-card span{font-size:12px;color:var(--rose);text-transform:uppercase;letter-spacing:.12em}
+.review-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.review-shot{border:0;padding:0;background:none;border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:0 11px 30px rgba(46,34,40,.10)}
+.review-shot img{width:100%;height:260px;object-fit:cover;object-position:top}
+.review-shot:nth-child(3n) img{height:330px}
+.lightbox{position:fixed;inset:0;background:rgba(23,17,20,.92);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(920px,96vw);max-height:88vh;border-radius:20px;box-shadow:0 25px 90px rgba(0,0,0,.45)}
+.lightbox-close{position:absolute;top:calc(14px + env(safe-area-inset-top));right:16px;width:46px;height:46px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:24px}
+.result-banner{display:grid;gap:16px;background:linear-gradient(140deg,#31252a,#1f181c);color:#fff;border-radius:32px;padding:25px 22px;overflow:hidden}
+.result-banner img{width:100%;height:340px;object-fit:cover;border-radius:23px}
+.result-banner p{color:#d9ced3;line-height:1.65}
+.contact-photo{width:108px;height:108px;border-radius:50%;object-fit:cover;margin:0 auto 17px;border:4px solid rgba(255,255,255,.16)}
+@media(min-width:760px){
+  .proof-strip{grid-template-columns:repeat(4,1fr)}
+  .case-grid{grid-template-columns:repeat(3,1fr)}
+  .case-card img{height:510px}
+  .quote-grid{grid-template-columns:repeat(3,1fr)}
+  .review-gallery{grid-template-columns:repeat(3,1fr)}
+  .review-shot img,.review-shot:nth-child(3n) img{height:420px}
+  .result-banner{grid-template-columns:.9fr 1.1fr;align-items:center;padding:34px}
+  .result-banner img{height:500px}
+}
+
 </style>
 </head>
 <body>
-<header class="header"><div class="container header-inner"><a class="logo" href="#top">SOMA<small>BODY &amp; BALANCE</small></a><nav class="nav"><a href="#about">Обо мне</a><a href="#project">О проекте</a><a href="#training">Тренировки</a><a href="#guides">Гайды</a><a href="#assistant">Помощник Софа</a></nav><button aria-label="Меню" class="menu" id="menuBtn">☰</button></div><div class="drawer" id="drawer"><a href="#about">Обо мне</a><a href="#project">О проекте</a><a href="#training">Тренировки</a><a href="#guides">Гайды</a><a href="#assistant">Помощник Софа</a></div></header>
+<header class="header"><div class="container header-inner"><a class="logo" href="#top">SOMA<small>BODY &amp; BALANCE</small></a><nav class="nav"><a href="#about">Обо мне</a><a href="#project">О проекте</a><a href="#training">Тренировки</a><a href="#guides">Гайды</a><a href="#results">Результаты</a><a href="#reviews">Отзывы</a><a href="#assistant">Помощник Софа</a></nav><button aria-label="Меню" class="menu" id="menuBtn">☰</button></div><div class="drawer" id="drawer"><a href="#about">Обо мне</a><a href="#project">О проекте</a><a href="#training">Тренировки</a><a href="#guides">Гайды</a><a href="#results">Результаты</a><a href="#reviews">Отзывы</a><a href="#assistant">Помощник Софа</a></div></header>
 <main id="top">
-<section class="hero"><div class="container hero-grid"><div class="hero-photo reveal"><img alt="Онлайн-проект SOMA" src="assets/hero.jpg"/><div class="hero-badge"><div class="kicker">Онлайн-проект Софьи</div><h1>SOMA</h1><p>Твоё тело. Твоя энергия. Твоя лучшая версия.</p></div></div><div class="hero-panel reveal"><div class="kicker">Тренировки и забота о себе</div><h2>Сильнее, легче и увереннее в своём теле</h2><p>Осанка, дыхание, мобильность, ягодицы, full body и МФР — без жёстких запретов и давления на себя.</p><div class="actions"><a class="btn primary" href="https://t.me/sofcombank" rel="noopener" target="_blank">Связаться с Софой</a><a class="btn secondary" href="#assistant">Спросить помощника</a></div><div class="micro"><div><strong>6</strong>направлений</div><div><strong>Онлайн</strong>в удобное время</div><div><strong>25+</strong>для женщин</div><div><strong>Поддержка</strong>без осуждения</div></div></div></div></section><section class="section section-directory" id="sections"><div class="container"><div class="section-head reveal"><div class="kicker">Навигация по сайту</div><h2>Выбери раздел</h2><p class="lead">Начни со знакомства со мной, узнай о проекте и переходи к тренировкам, гайдам или помощнику.</p></div><div class="section-links"><a class="section-link reveal" href="#about"><img alt="Обо мне" src="assets/about.jpg"/><div class="section-link-copy"><span>01</span><h3>Обо мне</h3><p>Познакомься со мной и моим подходом.</p><b>→</b></div></a><a class="section-link reveal" href="#project"><img alt="О проекте" src="assets/project.jpg"/><div class="section-link-copy"><span>02</span><h3>О проекте</h3><p>Как устроена SOMA и кому она подходит.</p><b>→</b></div></a><a class="section-link reveal" href="trainings.html"><img alt="Тренировки" src="assets/training.jpg"/><div class="section-link-copy"><span>03</span><h3>Тренировки</h3><p>Все направления занятий в одном месте.</p><b>→</b></div></a><a class="section-link reveal" href="guides.html"><img alt="Гайды" src="assets/guides.jpg"/><div class="section-link-copy"><span>04</span><h3>Гайды</h3><p>Питание, привычки и восстановление.</p><b>→</b></div></a><a class="section-link reveal" href="#assistant"><img alt="Помощник Софа" src="assets/assistant.jpg"/><div class="section-link-copy"><span>05</span><h3>Помощник Софа</h3><p>КБЖУ, ИМТ и ориентир по шагам.</p><b>→</b></div></a></div></div></section><section class="section" id="about"><div class="container about"><div class="about-photo reveal"><img alt="Софья — тренер проекта SOMA" src="assets/about.jpg"/></div><div class="about-copy reveal"><div class="kicker">Обо мне</div><h2>Привет, я Софья</h2><p>Я онлайн-тренер и создатель проекта SOMA. Работаю с осанкой, дыханием, мобильностью, ягодицами, функциональными тренировками и МФР.</p><p>Моя задача — не просто дать комплекс упражнений, а помочь тебе лучше понимать тело, чувствовать уверенность в движениях и выстраивать заботу о себе без крайностей.</p><div class="results"><div class="result"><strong>6</strong><span>направлений</span></div><div class="result"><strong>8</strong><span>недель проекта</span></div><div class="result"><strong>1</strong><span>единая система</span></div></div></div></div></section><section class="section" id="project"><div class="container"><div class="section-head reveal"><div class="kicker">Почему SOMA</div><h2>Не просто тренировки</h2><p class="lead">Это система, которая помогает лучше чувствовать тело, укреплять его и выстраивать привычки, которые остаются с тобой надолго.</p></div><div class="cards"><div class="card reveal"><div class="card-icon">♡</div><h3>Бережный подход</h3><p>Без наказания тренировками и постоянной гонки за идеалом.</p></div><div class="card reveal"><div class="card-icon">✦</div><h3>Понятная система</h3><p>Ты понимаешь, зачем выполняешь каждое упражнение и что отслеживать.</p></div><div class="card reveal"><div class="card-icon">◌</div><h3>Баланс</h3><p>Движение, питание, дыхание, восстановление и поддержка в одном проекте.</p></div></div></div></section><section class="section" id="training"><div class="container"><div class="section-head reveal"><div class="kicker">Все тренировки</div><h2>Выбери своё направление</h2><p class="lead">Можно заниматься по одному направлению или собрать комплексную программу под свою цель.</p></div><div class="cards training"><a class="card click-card reveal" href="trainings.html#breathing"><div class="card-icon">🫁</div><h3>Дыхание</h3><p>Расслабление, работа с грудной клеткой и контроль дыхания.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#glutes"><div class="card-icon">🍑</div><h3>Ягодицы</h3><p>Сила, форма и грамотная техника без перегруза поясницы.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#fullbody"><div class="card-icon">⚡</div><h3>Full Body</h3><p>Функциональные тренировки на всё тело и выносливость.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#mobility"><div class="card-icon">🧘</div><h3>Мобильность</h3><p>Свобода движений, подвижность суставов и контроль тела.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#mfr"><div class="card-icon">◉</div><h3>МФР</h3><p>Мягкая работа с роллом и мячом для восстановления.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#posture"><div class="card-icon">🪽</div><h3>Осанка</h3><p>Спина, плечевой пояс, положение головы и таза.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a></div></div></section><section class="section" id="guides"><div class="container"><div class="section-head reveal"><div class="kicker">Полезные материалы</div><h2>Гайды SOMA</h2><p class="lead">Короткие и понятные материалы, которые можно применять без сложной теории.</p></div><div class="guide-row"><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Продуктовая корзина</h3><p>Базовый список продуктов для сбалансированного рациона.</p><div class="open-label"><span>Читать</span><b>→</b></div></a><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Методичка SOMA</h3><p>Основные материалы проекта в одном месте.</p><div class="open-label"><span>Читать</span><b>→</b></div></a><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Рецепты</h3><p>Простые варианты блюд для повседневного рациона.</p><div class="open-label"><span>Читать</span><b>→</b></div></a></div></div></section><section class="section" id="assistant"><div class="container"><div class="section-head reveal"><div class="kicker">Личный онлайн-помощник</div><h2>Познакомься с Софой</h2><p class="lead">Софа рассчитает ориентировочные КБЖУ, ИМТ и недельную норму шагов. Расчёты носят справочный характер.</p></div><div class="chat-wrap"><div class="chat-art reveal"><img alt="Помощник Софа" src="assets/assistant.jpg"/></div><div class="chat-card reveal"><div id="sofa-chat">
+<section class="hero"><div class="container hero-grid"><div class="hero-photo reveal"><img alt="Онлайн-проект SOMA" src="hero.jpg"/><div class="hero-badge"><div class="kicker">Онлайн-проект Софьи</div><h1>SOMA</h1><p>Сильное тело без жёстких ограничений.</p></div></div><div class="hero-panel reveal"><div class="kicker">Тренировки и забота о себе</div><h2>Тренировки, после которых хочется продолжать</h2><p>SOMA помогает выстроить движение, питание и привычки без наказания тренировками, запретов и вечного чувства вины.</p><div class="actions"><a class="btn primary" href="https://t.me/sofcombank" rel="noopener" target="_blank">Связаться с Софой</a><a class="btn secondary" href="#assistant">Спросить помощника</a></div><div class="micro"><div><strong>6</strong>направлений</div><div><strong>Онлайн</strong>в удобное время</div><div><strong>25+</strong>для женщин</div><div><strong>Поддержка</strong>без осуждения</div></div></div></div></section><section class="section section-directory" id="sections"><div class="container"><div class="section-head reveal"><div class="kicker">Навигация по сайту</div><h2>Выбери раздел</h2><p class="lead">Начни со знакомства со мной, узнай о проекте и переходи к тренировкам, гайдам или помощнику.</p></div><div class="section-links"><a class="section-link reveal" href="#about"><img alt="Обо мне" src="about.jpg"/><div class="section-link-copy"><span>01</span><h3>Обо мне</h3><p>Познакомься со мной и моим подходом.</p><b>→</b></div></a><a class="section-link reveal" href="#project"><img alt="О проекте" src="project.jpg"/><div class="section-link-copy"><span>02</span><h3>О проекте</h3><p>Как устроена SOMA и кому она подходит.</p><b>→</b></div></a><a class="section-link reveal" href="trainings.html"><img alt="Тренировки" src="training.jpg"/><div class="section-link-copy"><span>03</span><h3>Тренировки</h3><p>Все направления занятий в одном месте.</p><b>→</b></div></a><a class="section-link reveal" href="guides.html"><img alt="Гайды" src="guides.jpg"/><div class="section-link-copy"><span>04</span><h3>Гайды</h3><p>Питание, привычки и восстановление.</p><b>→</b></div></a><a class="section-link reveal" href="#assistant"><img alt="Помощник Софа" src="assistant.jpg"/><div class="section-link-copy"><span>05</span><h3>Помощник Софа</h3><p>КБЖУ, ИМТ и ориентир по шагам.</p><b>→</b></div></a></div></div></section><section class="section" id="about"><div class="container about"><div class="about-photo reveal"><img alt="Софья — тренер проекта SOMA" src="about.jpg"/></div><div class="about-copy reveal"><div class="kicker">Обо мне</div><h2>Привет, я Софья</h2><p>Я онлайн-тренер и создатель проекта SOMA. Работаю с осанкой, дыханием, мобильностью, ягодицами, функциональными тренировками и МФР.</p><p>Моя задача — не просто дать комплекс упражнений, а помочь тебе лучше понимать тело, чувствовать уверенность в движениях и выстраивать заботу о себе без крайностей.</p><div class="results"><div class="result"><strong>6</strong><span>направлений</span></div><div class="result"><strong>8</strong><span>недель проекта</span></div><div class="result"><strong>1</strong><span>единая система</span></div></div></div></div></section><section class="section" id="project"><div class="container"><div class="section-head reveal"><div class="kicker">Почему SOMA</div><h2>Не просто тренировки</h2><p class="lead">Это система, которая помогает лучше чувствовать тело, укреплять его и выстраивать привычки, которые остаются с тобой надолго.</p></div><div class="cards"><div class="card reveal"><div class="card-icon">♡</div><h3>Бережный подход</h3><p>Без наказания тренировками и постоянной гонки за идеалом.</p></div><div class="card reveal"><div class="card-icon">✦</div><h3>Понятная система</h3><p>Ты понимаешь, зачем выполняешь каждое упражнение и что отслеживать.</p></div><div class="card reveal"><div class="card-icon">◌</div><h3>Баланс</h3><p>Движение, питание, дыхание, восстановление и поддержка в одном проекте.</p></div></div></div></section><section class="section" id="training"><div class="container"><div class="section-head reveal"><div class="kicker">Все тренировки</div><h2>Выбери своё направление</h2><p class="lead">Можно заниматься по одному направлению или собрать комплексную программу под свою цель.</p></div><div class="cards training"><a class="card click-card reveal" href="trainings.html#breathing"><div class="card-icon">🫁</div><h3>Дыхание</h3><p>Расслабление, работа с грудной клеткой и контроль дыхания.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#glutes"><div class="card-icon">🍑</div><h3>Ягодицы</h3><p>Сила, форма и грамотная техника без перегруза поясницы.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#fullbody"><div class="card-icon">⚡</div><h3>Full Body</h3><p>Функциональные тренировки на всё тело и выносливость.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#mobility"><div class="card-icon">🧘</div><h3>Мобильность</h3><p>Свобода движений, подвижность суставов и контроль тела.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#mfr"><div class="card-icon">◉</div><h3>МФР</h3><p>Мягкая работа с роллом и мячом для восстановления.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a><a class="card click-card reveal" href="trainings.html#posture"><div class="card-icon">🪽</div><h3>Осанка</h3><p>Спина, плечевой пояс, положение головы и таза.</p><div class="open-label"><span>Открыть</span><b>→</b></div></a></div></div></section><section class="section" id="guides"><div class="container"><div class="section-head reveal"><div class="kicker">Полезные материалы</div><h2>Гайды SOMA</h2><p class="lead">Короткие и понятные материалы, которые можно применять без сложной теории.</p></div><div class="guide-row"><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Продуктовая корзина</h3><p>Базовый список продуктов для сбалансированного рациона.</p><div class="open-label"><span>Читать</span><b>→</b></div></a><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Методичка SOMA</h3><p>Основные материалы проекта в одном месте.</p><div class="open-label"><span>Читать</span><b>→</b></div></a><a class="guide click-card reveal" href="guides.html"><span>Гайды</span><h3>Рецепты</h3><p>Простые варианты блюд для повседневного рациона.</p><div class="open-label"><span>Читать</span><b>→</b></div></a></div></div></section>
+<section class="section" id="results">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Результаты участниц</div>
+      <h2>Изменения, которые видно и чувствуется</h2>
+      <p class="lead">Не только цифры на весах: меньше отёков, больше движения, стабильнее питание, уверенность и комфорт в своём теле.</p>
+      <div class="proof-strip">
+        <div class="proof-item"><strong>−10 кг</strong><span>за 10 месяцев</span></div>
+        <div class="proof-item"><strong>−8 см</strong><span>в талии за 4 месяца</span></div>
+        <div class="proof-item"><strong>−8 кг</strong><span>и −12 см в животе</span></div>
+        <div class="proof-item"><strong>2 недели</strong><span>до первых заметных изменений</span></div>
+      </div>
+    </div>
+    <div class="case-grid">
+      <button class="case-card reveal js-lightbox" data-src="review-07.jpg">
+        <img src="review-07.jpg" alt="Результат участницы: минус 10 килограммов" loading="lazy">
+        <div class="case-copy"><div class="kicker">Кейс 01</div><h3>−10 кг за 10 месяцев</h3><p>Спокойная системная работа без экстремальных ограничений.</p></div>
+      </button>
+      <button class="case-card reveal js-lightbox" data-src="review-05.jpg">
+        <img src="review-05.jpg" alt="Результат участницы: минус 5,5 килограмма" loading="lazy">
+        <div class="case-copy"><div class="kicker">Кейс 02</div><h3>−5,5 кг и новая форма</h3><p>Изменения в теле и силуэте за четыре месяца.</p></div>
+      </button>
+      <button class="case-card reveal js-lightbox" data-src="review-06.jpg">
+        <img src="review-06.jpg" alt="Результат участницы: минус 7,5 килограмма" loading="lazy">
+        <div class="case-copy"><div class="kicker">Кейс 03</div><h3>−7,5 кг за 3 месяца</h3><p>Даже при одной тренировке в неделю регулярность работает.</p></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Живые отзывы</div>
+      <h2>Что говорят девушки</h2>
+      <p class="lead">Настоящие сообщения, маленькие победы и большие изменения — без постановочных обещаний.</p>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card reveal"><p>«Стала больше двигаться, уменьшилась отёчность, а вес начал снижаться».</p><span>Результат за 2 недели</span></div>
+      <div class="quote-card reveal"><p>«Я хочу тренироваться просто для себя, без цели иметь невероятное тело».</p><span>Новый взгляд на движение</span></div>
+      <div class="quote-card reveal"><p>«Давно так хорошо себя не чувствовала — питание и физическая активность стали стабильнее».</p><span>Победа первой недели</span></div>
+    </div>
+    <div class="review-gallery">
+      <button class="review-shot js-lightbox reveal" data-src="review-01.jpg"><img src="review-01.jpg" alt="Отзыв участницы SOMA" loading="lazy"></button>
+      <button class="review-shot js-lightbox reveal" data-src="review-02.jpg"><img src="review-02.jpg" alt="Отзывы участниц SOMA" loading="lazy"></button>
+      <button class="review-shot js-lightbox reveal" data-src="review-03.jpg"><img src="review-03.jpg" alt="Замеры участницы за две недели" loading="lazy"></button>
+      <button class="review-shot js-lightbox reveal" data-src="review-04.jpg"><img src="review-04.jpg" alt="Динамика замеров участницы" loading="lazy"></button>
+      <button class="review-shot js-lightbox reveal" data-src="review-08.jpg"><img src="review-08.jpg" alt="Первые победы участниц" loading="lazy"></button>
+      <button class="review-shot js-lightbox reveal" data-src="review-09.jpg"><img src="review-09.jpg" alt="Отзывы о первых изменениях" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+<section class="section" id="assistant"><div class="container"><div class="section-head reveal"><div class="kicker">Личный онлайн-помощник</div><h2>Познакомься с Софой</h2><p class="lead">Софа рассчитает ориентировочные КБЖУ, ИМТ и недельную норму шагов. Расчёты носят справочный характер.</p></div><div class="chat-wrap"><div class="chat-art reveal"><img alt="Помощник Софа" src="assistant.jpg"/></div><div class="chat-card reveal"><div id="sofa-chat">
 <div aria-label="Онлайн-помощник Софа" class="sofa-window" id="sofaWindow" role="dialog">
 <div class="sofa-header">
 <div class="sofa-avatar">С</div>
@@ -279,14 +371,19 @@ h1{font-size:44px;line-height:.98;margin:8px 0 12px}
 </div></div></div></div></section>
 
 
-<section class="section"><div class="container"><div class="promo reveal"><img alt="Тренировки SOMA" src="assets/training.jpg"/><div class="promo-copy"><div class="kicker">Начни с малого</div><h2>Не нужно быть подготовленной</h2><p>Ты можешь начать с коротких занятий и постепенно встроить движение в свою жизнь. Главное — регулярность, комфортная нагрузка и внимание к самочувствию.</p><a class="btn primary" href="#assistant">Подобрать направление</a></div></div></div></section>
+<section class="section"><div class="container"><div class="promo reveal"><img alt="Тренировки SOMA" src="training.jpg"/><div class="promo-copy"><div class="kicker">Начни с малого</div><h2>Не нужно быть подготовленной</h2><p>Ты можешь начать с коротких занятий и постепенно встроить движение в свою жизнь. Главное — регулярность, комфортная нагрузка и внимание к самочувствию.</p><a class="btn primary" href="#assistant">Подобрать направление</a></div></div></div></section>
 
 
 
 <section class="section"><div class="container"><div class="section-head reveal"><div class="kicker">Ответы на вопросы</div><h2>Часто спрашивают</h2></div><div class="faq"><details class="reveal"><summary>Подойдёт ли проект новичку?</summary><p>Да. Нагрузку можно адаптировать, а начинать — с коротких и простых тренировок.</p></details><details class="reveal"><summary>Нужен ли спортивный инвентарь?</summary><p>Для части тренировок достаточно коврика. Для отдельных направлений могут пригодиться резинка, ролл, мяч или лёгкие гантели.</p></details><details class="reveal"><summary>Можно ли заниматься при боли или после травмы?</summary><p>При боли, травмах, операциях и медицинских ограничениях сначала нужно согласовать нагрузку с врачом или реабилитологом.</p></details></div></div></section>
-<section class="section" id="contact"><div class="container"><div class="contact reveal"><div class="kicker">Связаться со мной</div><h2>Я на связи</h2><p>Напиши мне в Telegram или позвони — отвечу на вопросы о проекте и помогу выбрать подходящий формат.</p><div class="contact-links"><a class="btn primary" href="https://t.me/sofcombank" rel="noopener" target="_blank">Telegram @sofcombank</a><a class="btn secondary" href="tel:+79044447419">+7 904 444-74-19</a><a class="btn secondary" href="#assistant">Спросить помощника</a></div></div></div></section>
+<section class="section" id="contact"><div class="container"><div class="contact reveal"><img class="contact-photo" src="contact.jpg" alt="Софья"><div class="kicker">Связаться со мной</div><h2>Я на связи</h2><p>Напиши мне в Telegram или позвони — отвечу на вопросы о проекте и помогу выбрать подходящий формат.</p><div class="contact-links"><a class="btn primary" href="https://t.me/sofcombank" rel="noopener" target="_blank">Telegram @sofcombank</a><a class="btn secondary" href="tel:+79044447419">+7 904 444-74-19</a><a class="btn secondary" href="#assistant">Спросить помощника</a></div></div></div></section>
 </main>
 <footer class="footer"><div class="logo" style="color:#fff">SOMA<small>BODY &amp; BALANCE</small></div><p>Тренировки. Дыхание. Забота о себе.</p><p class="footer-contacts">Телефон: <a href="tel:+79044447419">+7 904 444-74-19</a> · Telegram: <a href="https://t.me/sofcombank" rel="noopener" target="_blank">@sofcombank</a></p></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>
+  <img id="lightboxImage" alt="Увеличенное изображение отзыва">
+</div>
 <div class="sticky"><a class="join" href="https://t.me/sofcombank" rel="noopener" target="_blank">Связаться с Софой</a><a class="ask" href="#assistant">Спросить помощника</a></div>
 <script>
 const b=document.getElementById('menuBtn'),d=document.getElementById('drawer');b?.addEventListener('click',()=>d.classList.toggle('open'));d?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>d.classList.remove('open')));
@@ -543,6 +640,28 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targe
   windowEl.classList.add("is-open");
   launcher.textContent = "×";
 })();
+
+
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+const lightboxClose=document.getElementById('lightboxClose');
+document.querySelectorAll('.js-lightbox').forEach(button=>{
+  button.addEventListener('click',()=>{
+    lightboxImage.src=button.dataset.src;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden','true');
+  lightboxImage.src='';
+  document.body.style.overflow='';
+}
+lightboxClose?.addEventListener('click',closeLightbox);
+lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 
 </script>
 </body></html>
