@@ -22,8 +22,14 @@ const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 document.getElementById('send').onclick=async()=>{
  const email=document.getElementById('email').value.trim(), msg=document.getElementById('msg');
  if(!email){msg.textContent='Введи почту.';return}
+ msg.textContent='Проверяю доступ…';
+ const {data:allowed,error:checkError}=await s.rpc('is_preapproved_email',{p_email:email});
+ if(checkError || !allowed){
+   msg.textContent='Эта почта пока не имеет доступа. Напиши Софе в Telegram @sofcombank.';
+   return;
+ }
  const redirectTo=new URL('dashboard.html',location.href).toString();
- const {error}=await s.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:false}});
- msg.textContent=error?'Эта почта не имеет доступа или произошла ошибка.':'Готово 💗 Проверь почту — ссылка для входа отправлена.';
+ const {error}=await s.auth.signInWithOtp({email,options:{emailRedirectTo:redirectTo,shouldCreateUser:true}});
+ msg.textContent=error?'Не удалось отправить ссылку. Попробуй ещё раз.':'Готово 💗 Проверь почту — ссылка для входа отправлена.';
 };
 </script></body></html>
