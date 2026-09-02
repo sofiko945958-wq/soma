@@ -31,7 +31,7 @@ footer{padding:36px 0 48px;border-top:1px solid rgba(25,19,18,.1);color:var(--mu
 @media(max-width:800px){.navlinks .hide{display:none}.hero{padding-top:58px}.grid{grid-template-columns:1fr}.card{min-height:280px}.banner{padding:26px}.navin{height:64px}}
 </style></head><body>
 <nav><div class="wrap navin"><a class="logo" href="index.html">SOMA</a><div class="navlinks">
-<a class="pill hide" href="guides.html">Методички</a><a class="pill hot" href="index.html">На главную</a></div></div></nav>
+<a class="pill hide" href="home.html">SOMA HOME</a><a class="pill hot" href="dashboard.html">Кабинет</a></div></div></nav>
 <header class="hero"><div class="wrap"><div class="eyebrow">ВИДЕОТРЕНИРОВКИ SOMA</div>
 <h1>ДВИГАЙСЯ.<br>ПОНИМАЙ. ПРОГРЕССИРУЙ.</h1>
 <p class="lead">Видео по направлениям SOMA: техника, дыхание, мобильность, восстановление и тренировки на всё тело — в одном пространстве.</p></div></header>
@@ -44,7 +44,7 @@ footer{padding:36px 0 48px;border-top:1px solid rgba(25,19,18,.1);color:var(--mu
 <article class="card"><div><div class="num">05 / MFR</div><h3>МФР</h3><p>Работа с роллом и мячом для восстановления и снятия лишнего напряжения.</p><div class="tags"><span class="tag">ролл</span><span class="tag">восстановление</span></div></div><a class="cta" href="https://disk.yandex.ru/d/4GmPRfT3k-o9Qg" target="_blank">Смотреть видео</a></article>
 <article class="card"><div><div class="num">06 / POSTURE</div><h3>Осанка</h3><p>Спина, плечевой пояс, положение головы и таза, контроль корпуса.</p><div class="tags"><span class="tag">спина</span><span class="tag">осанка</span></div></div><a class="cta" href="https://disk.yandex.ru/d/4GmPRfT3k-o9Qg" target="_blank">Смотреть видео</a></article>
 </section>
-<section class="banner"><h2>Техника важнее<br>случайной интенсивности.</h2><p>Смотри видеоуроки, записывай своё выполнение и отправляй технику на проверку внутри проекта SOMA.</p><a class="cta" href="guides.html">Открыть методички →</a></section>
+<section class="banner"><h2>SOMA HOME —<br>твоё пространство.</h2><p>Эта страница доступна только участницам SOMA HOME. Материалы SOMA GYM открываются отдельно после покупки направления GYM.</p><a class="cta" href="dashboard.html">Вернуться в кабинет →</a></section>
 </main><footer><div class="wrap">SOMA · Софья Аксенова · <a href="https://t.me/sofcombank">Telegram @sofcombank</a></div></footer>
 
 <script type="module">
@@ -54,9 +54,9 @@ const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser();
 if(!user) location.replace('login.html');
 else {
- const {data:a}=await s.from('member_access').select('home,gym,personal,active_until').eq('user_id',user.id).maybeSingle();
+ const {data:a}=await s.from('member_access').select('home,active_until').eq('user_id',user.id).maybeSingle();
  const expired=a?.active_until && new Date(a.active_until)<new Date();
- if(!a || expired || !(a.home||a.gym||a.personal)) location.replace('dashboard.html');
+ if(!a || expired || !a.home) location.replace('dashboard.html');
  else document.documentElement.classList.remove('auth-pending');
 }
 </script>

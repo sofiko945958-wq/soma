@@ -1,0 +1,15 @@
+SOMA access model
+
+member_access.home = SOMA HOME
+member_access.gym = SOMA GYM
+member_access.home + member_access.gym = FULL
+member_access.personal = PERSONAL
+
+Protected routes:
+- home.html -> requires home
+- trainings.html -> requires home
+- gym.html -> requires gym
+- guides.html -> requires gym
+- personal.html -> requires personal
+
+Dashboard shows locked products with an upsell button.
