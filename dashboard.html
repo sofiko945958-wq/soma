@@ -19,6 +19,8 @@ import {SUPABASE_URL,SUPABASE_ANON_KEY} from './supabase-config.js';
 const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser(); if(!user) location.href='login.html';
 document.getElementById('logout').onclick=async()=>{await s.auth.signOut();location.href='index.html'};
+// На каждом входе синхронизируем доступ с заранее разрешённой почтой.
+await s.rpc('claim_my_preapproved_access');
 const {data:a}=await s.from('member_access').select('*').eq('user_id',user.id).maybeSingle();
 const expired=a?.active_until && new Date(a.active_until)<new Date();
 const plan=!expired&&a?.home&&a?.gym?'FULL':!expired&&a?.home?'HOME':!expired&&a?.gym?'GYM':!expired&&a?.personal?'PERSONAL':'';

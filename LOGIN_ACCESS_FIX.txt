@@ -1,0 +1,5 @@
+SOMA login access fix
+
+Dashboard and all protected pages now call claim_my_preapproved_access() after authentication.
+This syncs the authenticated user with preapproved_access by the email inside their JWT, then reads member_access.
+HOME/GYM/PERSONAL remain separate.

@@ -17,6 +17,7 @@ import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2
 import {SUPABASE_URL,SUPABASE_ANON_KEY} from './supabase-config.js';
 const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser(); if(!user) location.replace('login.html');
+await s.rpc('claim_my_preapproved_access');
 const {data:a}=await s.from('member_access').select('personal,active_until').eq('user_id',user.id).maybeSingle();
 if(!a || !a.personal || (a.active_until && new Date(a.active_until)<new Date())) location.replace('dashboard.html');
 else document.documentElement.classList.remove('auth-pending');
