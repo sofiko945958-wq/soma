@@ -20,8 +20,17 @@ const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser(); if(!user) location.href='login.html';
 document.getElementById('logout').onclick=async()=>{await s.auth.signOut();location.href='index.html'};
 // На каждом входе синхронизируем доступ с заранее разрешённой почтой.
-await s.rpc('claim_my_preapproved_access');
-const {data:a}=await s.from('member_access').select('*').eq('user_id',user.id).maybeSingle();
+// Берём доступ прямо из RPC, чтобы кабинет не зависел от задержки/политик чтения таблицы.
+let a=null;
+const {data:claimed,error:claimError}=await s.rpc('claim_my_preapproved_access');
+if(!claimError && claimed){
+  a=Array.isArray(claimed)?claimed[0]:claimed;
+}
+// Fallback: если RPC ничего не вернул, пробуем обычное чтение своей строки.
+if(!a){
+  const {data:row}=await s.from('member_access').select('*').eq('user_id',user.id).maybeSingle();
+  a=row||null;
+}
 const expired=a?.active_until && new Date(a.active_until)<new Date();
 const plan=!expired&&a?.home&&a?.gym?'FULL':!expired&&a?.home?'HOME':!expired&&a?.gym?'GYM':!expired&&a?.personal?'PERSONAL':'';
 document.getElementById('status').textContent=!a?'Аккаунт подтверждён, но доступ к программе ещё не назначен.':expired?'Срок доступа завершён.':plan?`Доступ ${plan} · ${user.email}`:'Вход выполнен: '+user.email;
