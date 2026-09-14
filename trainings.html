@@ -45,7 +45,7 @@ footer{padding:36px 0 48px;border-top:1px solid rgba(25,19,18,.1);color:var(--mu
 <article class="card"><div><div class="num">06 / POSTURE</div><h3>Осанка</h3><p>Спина, плечевой пояс, положение головы и таза, контроль корпуса.</p><div class="tags"><span class="tag">спина</span><span class="tag">осанка</span></div></div><a class="cta" href="https://disk.yandex.ru/d/4GmPRfT3k-o9Qg" target="_blank">Смотреть видео</a></article>
 </section>
 <section class="banner"><h2>SOMA HOME —<br>твоё пространство.</h2><p>Эта страница доступна только участницам SOMA HOME. Материалы SOMA GYM открываются отдельно после покупки направления GYM.</p><a class="cta" href="dashboard.html">Вернуться в кабинет →</a></section>
-</main><footer><div class="wrap">SOMA · Софья Аксенова · <a href="https://t.me/sofcombank">Telegram @sofcombank</a></div></footer>
+</main><footer><div class="wrap">SOMA · Софья Аксенова · <a href="https://t.me/sofcombank">Telegram @sofcombank</a> · <a href="offer.html">Оферта</a> · <a href="privacy.html">Политика</a></div></footer>
 
 <script type="module">
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
@@ -54,6 +54,7 @@ const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser();
 if(!user) location.replace('login.html');
 else {
+ await s.rpc('claim_my_preapproved_access');
  const {data:a}=await s.from('member_access').select('home,active_until').eq('user_id',user.id).maybeSingle();
  const expired=a?.active_until && new Date(a.active_until)<new Date();
  if(!a || expired || !a.home) location.replace('dashboard.html');
