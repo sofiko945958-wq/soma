@@ -54,10 +54,14 @@ const s=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const {data:{user}}=await s.auth.getUser();
 if(!user) location.replace('login.html');
 else {
- await s.rpc('claim_my_preapproved_access');
- const {data:a}=await s.from('member_access').select('home,active_until').eq('user_id',user.id).maybeSingle();
+ const {data:claimed,error:claimError}=await s.rpc('claim_my_preapproved_access');
+ let a=!claimError&&claimed?(Array.isArray(claimed)?claimed[0]:claimed):null;
+ if(!a){
+   const {data:row}=await s.from('member_access').select('home,active_until').eq('user_id',user.id).maybeSingle();
+   a=row||null;
+ }
  const expired=a?.active_until && new Date(a.active_until)<new Date();
- if(!a || expired || !a.home) location.replace('dashboard.html');
+ if(!a || expired || !a?.home) location.replace('dashboard.html');
  else document.documentElement.classList.remove('auth-pending');
 }
 </script>
